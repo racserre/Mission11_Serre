@@ -1,0 +1,6 @@
+@Mission11_Serre.API_HostAddress = http://localhost:5264
+
+GET {{Mission11_Serre.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
