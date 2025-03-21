@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Book } from './types/Book';
 
 function BookList() {
-  // State to store books, pagination, and sorting parameters
   const [books, setBooks] = useState<Book[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -15,7 +14,6 @@ function BookList() {
     const fetchBooks = async () => {
       let url = `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}`;
 
-      // If sorting is enabled, add sorting parameters to URL
       if (sortEnabled) {
         url += `&sortBy=title&sortOrder=${sortOrder}`; // Pass sorting criteria to the API
       }
@@ -71,36 +69,34 @@ function BookList() {
       )}
 
       {/* Book Cards */}
-      <div className="row mt-4">
+      <div className="mt-4">
         {books.map((book) => (
-          <div className="col-md-6 mb-4" key={book.bookID}>
-            <div className="card shadow-sm">
-              <div className="card-body">
-                <h5 className="card-title">{book.title}</h5>
-                <ul className="list-unstyled">
-                  <li>
-                    <strong>Author:</strong> {book.author}
-                  </li>
-                  <li>
-                    <strong>Publisher:</strong> {book.publisher}
-                  </li>
-                  <li>
-                    <strong>ISBN:</strong> {book.isbn}
-                  </li>
-                  <li>
-                    <strong>Classification:</strong> {book.classification}
-                  </li>
-                  <li>
-                    <strong>Category:</strong> {book.category}
-                  </li>
-                  <li>
-                    <strong>Number of Pages:</strong> {book.pageCount}
-                  </li>
-                  <li>
-                    <strong>Price:</strong> ${book.price}
-                  </li>
-                </ul>
-              </div>
+          <div className="card shadow-sm mb-4" key={book.bookID}>
+            <div className="card-body">
+              <h5 className="card-title">{book.title}</h5>
+              <ul className="list-unstyled">
+                <li>
+                  <strong>Author:</strong> {book.author}
+                </li>
+                <li>
+                  <strong>Publisher:</strong> {book.publisher}
+                </li>
+                <li>
+                  <strong>ISBN:</strong> {book.isbn}
+                </li>
+                <li>
+                  <strong>Classification:</strong> {book.classification}
+                </li>
+                <li>
+                  <strong>Category:</strong> {book.category}
+                </li>
+                <li>
+                  <strong>Number of Pages:</strong> {book.pageCount}
+                </li>
+                <li>
+                  <strong>Price:</strong> ${book.price}
+                </li>
+              </ul>
             </div>
           </div>
         ))}
@@ -120,9 +116,7 @@ function BookList() {
         {[...Array(totalPages)].map((_, index) => (
           <button
             key={index + 1}
-            className={`btn btn-outline-primary mx-1 ${
-              pageNum === index + 1 ? 'active' : ''
-            }`}
+            className={`btn btn-outline-primary mx-1 ${pageNum === index + 1 ? 'active' : ''}`}
             onClick={() => setPageNum(index + 1)} // Set the page number on click
             disabled={pageNum === index + 1} // Disable button if it's the current page
           >
