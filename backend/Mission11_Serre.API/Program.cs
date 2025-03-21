@@ -4,34 +4,33 @@ using Mission11_Serre.API.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers(); // Adds controller services
+builder.Services.AddEndpointsApiExplorer(); // Adds endpoint exploration for Swagger
+builder.Services.AddSwaggerGen(); // Adds Swagger generation
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
+// Configure the DbContext to use SQLite with the connection string from the configuration
 builder.Services.AddDbContext<BookDbContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("BookConnection"));
 });
 
-builder.Services.AddCors();
+builder.Services.AddCors(); // Adds CORS support
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger(); // Enables Swagger UI in development
+    app.UseSwaggerUI(); // Setup Swagger UI
 }
 
-app.UseCors(x => x.WithOrigins("http://localhost:3000"));
+app.UseCors(x => x.WithOrigins("http://localhost:3000")); // Allows requests from localhost:3000
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); // Redirect HTTP to HTTPS
 
-app.UseAuthorization();
+app.UseAuthorization(); // Enables authorization middleware
 
-app.MapControllers();
+app.MapControllers(); // Maps controllers to endpoints
 
-app.Run();
+app.Run(); // Runs the application

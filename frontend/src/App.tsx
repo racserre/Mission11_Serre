@@ -1,12 +1,12 @@
-import './App.css';
-import BookList from './BookList';
+import './App.css'; // Imports styles for the app
+import BookList from './BookList'; // Imports the BookList component
 
 function App() {
   return (
     <>
-      <BookList />
+      <BookList /> {/* Renders the BookList component */}
     </>
   );
 }
 
-export default App;
+export default App; // Exports the App component
