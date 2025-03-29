@@ -3,33 +3,41 @@ import { Book } from '../types/Book';
 import { useNavigate } from 'react-router-dom';
 
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
+  // State for storing books retrieved from the API
   const [books, setBooks] = useState<Book[]>([]);
-  const [pageSize, setPageSize] = useState<number>(5);
-  const [pageNum, setPageNum] = useState<number>(1);
-  const [totalItems, setTotalItems] = useState<number>(0);
-  const [totalPages, setTotalPages] = useState<number>(0);
-  const [sortEnabled, setSortEnabled] = useState<boolean>(false);
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [pageSize, setPageSize] = useState<number>(5); // Number of books per page
+  const [pageNum, setPageNum] = useState<number>(1); // Current page number
+  const [totalItems, setTotalItems] = useState<number>(0); // Total number of books available
+  const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
+  const [sortEnabled, setSortEnabled] = useState<boolean>(false); // Sorting toggle state
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc'); // Sorting order state
   const navigate = useNavigate();
 
+  // Reset to the first page when category selection changes
   useEffect(() => {
     setPageNum(1);
   }, [selectedCategories]);
 
+  // Fetch books from API whenever pagination, sorting, or category filters change
   useEffect(() => {
     const fetchBooks = async () => {
+      // Construct category filter query parameters
       const categoryParams = selectedCategories
         .map((category) => `bookTypes=${encodeURIComponent(category)}`)
         .join('&');
 
+      // Construct API URL with pagination and sorting options
       let url = `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length ? `&${categoryParams}` : ''}`;
 
       if (sortEnabled) {
         url += `&sortBy=title&sortOrder=${sortOrder}`;
       }
 
+      // Fetch books from API
       const response = await fetch(url);
       const data = await response.json();
+
+      // Update state with retrieved book data
       setBooks(data.books);
       setTotalItems(data.totalNumBooks);
       setTotalPages(Math.ceil(data.totalNumBooks / pageSize));
@@ -37,8 +45,6 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
 
     fetchBooks();
   }, [pageSize, pageNum, sortEnabled, sortOrder, selectedCategories]);
-
-  // ✅ Function to handle adding a book to the cart
 
   return (
     <div className="container mt-4">
@@ -51,7 +57,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           checked={sortEnabled}
           onChange={() => {
             setSortEnabled(!sortEnabled);
-            setPageNum(1);
+            setPageNum(1); // Reset to first page when sorting is toggled
           }}
           style={{ marginRight: '5px' }}
         />
@@ -69,7 +75,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
             value={sortOrder}
             onChange={(e) => {
               setSortOrder(e.target.value as 'asc' | 'desc');
-              setPageNum(1);
+              setPageNum(1); // Reset to first page on sorting change
             }}
           >
             <option value="asc">A-Z</option>
@@ -78,7 +84,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         </div>
       )}
 
-      {/* Book Cards */}
+      {/* Book List */}
       <div className="d-flex flex-column mt-4" style={{ width: '500px' }}>
         {books.map((book) => (
           <div className="card shadow-sm mb-4" key={book.bookID}>
@@ -122,18 +128,19 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
       <div className="d-flex justify-content-center mt-4">
         <button
           className="btn btn-primary me-2"
-          disabled={pageNum === 1}
+          disabled={pageNum === 1} // Disable previous button if on the first page
           onClick={() => setPageNum(pageNum - 1)}
         >
           Previous
         </button>
 
+        {/* Page Number Buttons */}
         {[...Array(totalPages)].map((_, index) => (
           <button
             key={index + 1}
             className={`btn btn-outline-primary mx-1 ${pageNum === index + 1 ? 'active' : ''}`}
             onClick={() => setPageNum(index + 1)}
-            disabled={pageNum === index + 1}
+            disabled={pageNum === index + 1} // Disable the current active page button
           >
             {index + 1}
           </button>
@@ -141,7 +148,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
 
         <button
           className="btn btn-primary ms-2"
-          disabled={pageNum === totalPages}
+          disabled={pageNum === totalPages} // Disable next button if on the last page
           onClick={() => setPageNum(pageNum + 1)}
         >
           Next
@@ -156,7 +163,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           value={pageSize}
           onChange={(p) => {
             setPageSize(Number(p.target.value));
-            setPageNum(1);
+            setPageNum(1); // Reset to first page when changing results per page
           }}
         >
           <option value="5">5</option>

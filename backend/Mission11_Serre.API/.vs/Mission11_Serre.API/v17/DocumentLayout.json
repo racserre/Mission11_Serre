@@ -36,9 +36,10 @@
               "RelativeDocumentMoniker": "Data\\Book.cs",
               "ToolTip": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Data\\Book.cs",
               "RelativeToolTip": "Data\\Book.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T14:56:09.598Z"
+              "WhenOpened": "2025-03-26T14:56:09.598Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,7 +49,7 @@
               "RelativeDocumentMoniker": "Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Controllers\\BookController.cs",
               "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T17:38:06.207Z",
               "EditorCaption": ""
