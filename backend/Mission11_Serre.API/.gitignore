@@ -1,0 +1,11 @@
+﻿bin/
+obj/
+
+.vs/
+
+*.suo
+*.user
+*.sln.docstates
+
+*.log
+*.tlog

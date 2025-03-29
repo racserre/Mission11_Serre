@@ -26,29 +26,39 @@
         "Name": "sortOrder",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "bookTypes",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Mission11_Serre.API.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "Mission11_Serre.API.Controllers.BookController",
+    "Method": "GetBookCategories",
+    "RelativePath": "Book/GetBookCategories",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mission11_Serre.API.Controllers.BookController",
+    "Method": "GetBookPrice",
+    "RelativePath": "Book/GetBookPrice/{bookId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Mission11_Serre.API.WeatherForecast, Mission11_Serre.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
   }
 ]
