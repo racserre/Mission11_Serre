@@ -4,24 +4,25 @@ import { useNavigate } from 'react-router-dom';
 import { fetchBooks } from '../api/BooksAPI';
 import Pagination from './Pagination';
 
+// Functional component that displays a list of books with filtering, sorting, and pagination
 function BookList({ selectedCategories }: { selectedCategories: string[] }) {
-  // State for storing books retrieved from the API
+  // Local state for books, pagination, sorting, loading, and error handling
   const [books, setBooks] = useState<Book[]>([]);
-  const [pageSize, setPageSize] = useState<number>(5); // Number of books per page
+  const [pageSize, setPageSize] = useState<number>(5); // How many books per page
   const [pageNum, setPageNum] = useState<number>(1); // Current page number
   const [totalPages, setTotalPages] = useState<number>(0); // Total number of pages
-  const [sortEnabled, setSortEnabled] = useState<boolean>(false); // Sorting toggle state
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc'); // Sorting order state
-  const navigate = useNavigate();
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [sortEnabled, setSortEnabled] = useState<boolean>(false); // Sorting toggle
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc'); // Sort direction
+  const navigate = useNavigate(); // Hook for programmatic navigation
+  const [error, setError] = useState<string | null>(null); // Error message if fetch fails
+  const [loading, setLoading] = useState(true); // Loading state while fetching data
 
-  // Reset to the first page when category selection changes
+  // When the selected categories change, reset to page 1
   useEffect(() => {
     setPageNum(1);
   }, [selectedCategories]);
 
-  // Fetch books from API whenever pagination, sorting, or category filters change
+  // Fetch books from API whenever page size, number, sorting, or filters change
   useEffect(() => {
     const loadBooks = async () => {
       try {
@@ -34,22 +35,25 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           sortOrder
         );
 
-        // Update state with retrieved book data
+        // Update state with fetched data
         setBooks(data.books);
         setTotalPages(Math.ceil(data.totalNumBooks / pageSize));
       } catch (error) {
-        setError((error as Error).message);
+        setError((error as Error).message); // Capture and store any error message
       } finally {
-        setLoading(false);
+        setLoading(false); // Hide loading state after fetch
       }
     };
 
     loadBooks();
   }, [pageSize, pageNum, sortEnabled, sortOrder, selectedCategories]);
 
+  // Show loading spinner/text while fetching books
   if (loading) {
     return <p>Loading books...</p>;
   }
+
+  // Show an error message if fetch failed
   if (error) {
     return <p className="text-red-500">Error: {error}</p>;
   }
@@ -65,7 +69,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           checked={sortEnabled}
           onChange={() => {
             setSortEnabled(!sortEnabled);
-            setPageNum(1); // Reset to first page when sorting is toggled
+            setPageNum(1); // Reset to first page on toggle
           }}
           style={{ marginRight: '5px' }}
         />
@@ -74,7 +78,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         </label>
       </div>
 
-      {/* Sorting Order Dropdown */}
+      {/* Sort Order Dropdown (visible only if sorting is enabled) */}
       {sortEnabled && (
         <div className="mt-2">
           <label className="form-label">Sort Order:</label>
@@ -83,7 +87,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
             value={sortOrder}
             onChange={(e) => {
               setSortOrder(e.target.value as 'asc' | 'desc');
-              setPageNum(1); // Reset to first page on sorting change
+              setPageNum(1); // Reset to first page on sort change
             }}
           >
             <option value="asc">A-Z</option>
@@ -92,7 +96,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         </div>
       )}
 
-      {/* Book List */}
+      {/* Book Cards */}
       <div className="d-flex flex-column mt-4" style={{ width: '500px' }}>
         {books.map((book) => (
           <div className="card shadow-sm mb-4" key={book.bookID}>
@@ -121,6 +125,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                   <strong>Price:</strong> ${book.price.toFixed(2)}
                 </li>
               </ul>
+              {/* Button to navigate to purchase page */}
               <button
                 className="btn btn-success me-2"
                 onClick={() => navigate(`/buy/${book.title}/${book.bookID}`)}
@@ -131,6 +136,8 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
           </div>
         ))}
       </div>
+
+      {/* Pagination Controls */}
       <Pagination
         currentPage={pageNum}
         totalPages={totalPages}
@@ -138,7 +145,7 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
         onPageChange={setPageNum}
         onPagesSizeChange={(newSize) => {
           setPageSize(newSize);
-          setPageNum(1);
+          setPageNum(1); // Reset to first page on page size change
         }}
       />
     </div>

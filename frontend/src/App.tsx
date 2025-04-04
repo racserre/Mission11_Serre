@@ -27,6 +27,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />{' '}
             {/* Route to view the shopping cart */}
             <Route path="/adminbooks" element={<AdminBooksPage />} />
+            {/* Route to view the admin page */}
           </Routes>
         </Router>
       </CartProvider>

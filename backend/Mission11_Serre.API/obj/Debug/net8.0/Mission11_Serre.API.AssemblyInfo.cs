@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+79e1fa7712bf92ca3e8e8202723e47b283d44b13")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af635f1fca836c5b8de4157f77612152ccbdcef7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/c958c353-fc45-47b6-ba60-bb46e90d9cfe/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/Mission13-Serre-Backend",
+  "appService.deploySubpath": "backend\\Mission11_Serre.API\\publish"
+}
