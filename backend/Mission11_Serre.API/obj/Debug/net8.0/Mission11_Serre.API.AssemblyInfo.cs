@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2576ea3d6fdcb803753cf3b6561b2cf63f0c60b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66d0bc4d460b202bb232421e14dcaa779235a4cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Serre.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

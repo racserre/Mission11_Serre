@@ -13,7 +13,9 @@ function BuyPage() {
 
   useEffect(() => {
     // Fetching the price of the book from the API using the bookID
-    fetch(`https://localhost:5000/Book/GetBookPrice/${bookID}`)
+    fetch(
+      `https://mission13-serre-backend-fbcsaharftc4d4dq.eastus-01.azurewebsites.net/Book/GetBookPrice/${bookID}`
+    )
       .then((res) => res.json()) // Parsing the response as JSON
       .then((data) => setPrice(data.price)) // Setting the fetched price in the state
       .catch((err) => console.error('Error fetching price:', err)); // Logging any errors

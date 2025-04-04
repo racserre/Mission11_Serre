@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
     policy =>
     {
-        policy.WithOrigins("https://yellow-tree-0d4d6231e.6.azurestaticapps.net")
+        policy.WithOrigins("https://victorious-glacier-0aaa5ae1e.6.azurestaticapps.net")
               .AllowAnyHeader()
               .AllowAnyMethod();
     }));
@@ -33,9 +33,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(); // Setup Swagger UI
 }
 
-app.UseCors("AllowReactApp");
+
 
 app.UseHttpsRedirection(); // Redirect HTTP to HTTPS
+
+app.UseCors("AllowReactApp");
 
 app.UseAuthorization(); // Enables authorization middleware
 
