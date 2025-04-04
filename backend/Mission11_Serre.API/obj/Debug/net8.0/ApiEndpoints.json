@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "Mission11_Serre.API.Controllers.BookController",
+    "Method": "AddBook",
+    "RelativePath": "Book/AddBook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newBook",
+        "Type": "Mission11_Serre.API.Data.Book",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mission11_Serre.API.Controllers.BookController",
     "Method": "GetBooks",
     "RelativePath": "Book/AllBooks",
     "HttpMethod": "GET",
@@ -37,6 +53,22 @@
   },
   {
     "ContainingType": "Mission11_Serre.API.Controllers.BookController",
+    "Method": "DeleteBook",
+    "RelativePath": "Book/DeleteBook/{bookId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mission11_Serre.API.Controllers.BookController",
     "Method": "GetBookCategories",
     "RelativePath": "Book/GetBookCategories",
     "HttpMethod": "GET",
@@ -56,6 +88,27 @@
       {
         "Name": "bookId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Mission11_Serre.API.Controllers.BookController",
+    "Method": "UpdateBook",
+    "RelativePath": "Book/UpdateBook/{bookId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedBook",
+        "Type": "Mission11_Serre.API.Data.Book",
         "IsRequired": true
       }
     ],

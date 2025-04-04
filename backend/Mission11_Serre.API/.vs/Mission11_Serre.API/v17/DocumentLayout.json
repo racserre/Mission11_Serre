@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{AB0FD768-0008-39E3-9D19-D69174765559}|Mission11_Serre.API.csproj|solutionrelative:controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{AB0FD768-0008-39E3-9D19-D69174765559}|Mission11_Serre.API.csproj|c:\\users\\rache\\onedrive\\desktop\\mission11_serre\\backend\\mission11_serre.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB0FD768-0008-39E3-9D19-D69174765559}|Mission11_Serre.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AB0FD768-0008-39E3-9D19-D69174765559}|Mission11_Serre.API.csproj|c:\\users\\rache\\onedrive\\desktop\\mission11_serre\\backend\\mission11_serre.api\\data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AB0FD768-0008-39E3-9D19-D69174765559}|Mission11_Serre.API.csproj|solutionrelative:data\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,6 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T06:51:20.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Data\\Book.cs",
               "RelativeDocumentMoniker": "Data\\Book.cs",
@@ -38,8 +55,7 @@
               "RelativeToolTip": "Data\\Book.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T14:56:09.598Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T14:56:09.598Z"
             },
             {
               "$type": "Document",
@@ -49,7 +65,7 @@
               "RelativeDocumentMoniker": "Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\rache\\OneDrive\\Desktop\\Mission11_Serre\\backend\\Mission11_Serre.API\\Controllers\\BookController.cs",
               "RelativeToolTip": "Controllers\\BookController.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAwwG0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGIAAAAAAAAAAADwv2sAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-19T17:38:06.207Z",
               "EditorCaption": ""

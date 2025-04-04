@@ -4,6 +4,7 @@ import BuyPage from './pages/BuyPage'; // Importing BuyPage component for handli
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importing React Router components for page navigation
 import CartPage from './pages/CartPage'; // Importing CartPage component for displaying the cart and managing cart items
 import { CartProvider } from './context/CartContext'; // Importing CartProvider to provide cart data throughout the app
+import AdminBooksPage from './pages/AdminBooksPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             {/* Route to view the list of books */}
             <Route path="/cart" element={<CartPage />} />{' '}
             {/* Route to view the shopping cart */}
+            <Route path="/adminbooks" element={<AdminBooksPage />} />
           </Routes>
         </Router>
       </CartProvider>
