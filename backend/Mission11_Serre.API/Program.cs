@@ -18,10 +18,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowReactApp",
     policy =>
     {
-        policy.AllowAnyOrigin() // Allow requests from localhost:3000
-              .AllowAnyHeader() // Allow any header
-              .AllowAnyMethod(); // Allow any HTTP method
+        policy.WithOrigins("https://yellow-tree-0d4d6231e.6.azurestaticapps.net")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     }));
+
 
 var app = builder.Build();
 
